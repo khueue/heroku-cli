@@ -22,6 +22,7 @@ heroku: setup build
 	@ docker run --interactive --tty --rm --init \
 		--mount type="bind",source="$(NETRC_DIR)",target="/root",consistency="delegated" \
 		--mount type="bind",source="$(PWD)",target="/workdir",consistency="delegated" \
+		--workdir /workdir \
 		$(IMAGE_TAG) \
 		$(HEROKU_ARGS)
 
