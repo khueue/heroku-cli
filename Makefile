@@ -26,10 +26,22 @@ heroku: setup build
 		$(IMAGE_TAG) \
 		$(HEROKU_ARGS)
 
+cmd := bash --login
+shell: setup build
+	docker run --interactive --tty --rm --init \
+		--mount type="bind",source="$(NETRC_DIR)",target="/root",consistency="delegated" \
+		--mount type="bind",source="$(PWD)",target="/workdir",consistency="delegated" \
+		--workdir /workdir/ \
+		--entrypoint bash \
+		$(IMAGE_TAG) \
+		-c "$(cmd)"
+
 setup:
 	@ mkdir -p $(NETRC_DIR)
 
 build:
-	@ docker build --quiet \
+	@ docker build \
+		--quiet \
 		--tag $(IMAGE_TAG) \
+		--file ./Dockerfile \
 		./ > /dev/null
