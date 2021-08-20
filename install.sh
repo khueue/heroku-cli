@@ -19,5 +19,9 @@ EOF
 
 chmod +x ${CLI_EXE_PATH}
 
-echo "--- Installed heroku-cli to your PATH, at ${CLI_EXE_PATH}."
-echo "--- Usage: heroku-cli"
+echo "Installed heroku-cli to your PATH, at ${CLI_EXE_PATH}."
+echo "Uninstall with: make uninstall"
+echo
+echo "Usage:"
+echo "$ heroku-cli login"
+echo "$ heroku-cli logs --app my-app"

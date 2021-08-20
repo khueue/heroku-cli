@@ -20,7 +20,7 @@ For example:
 
 ```
 heroku-cli login # You will be prompted to log in using a browser.
-heroku-cli logs --app my-app-stage
+heroku-cli logs --app my-app
 ```
 
 NOTE: Your current working directory will be mounted and available inside

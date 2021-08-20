@@ -26,6 +26,7 @@ heroku: setup build
 		$(IMAGE_TAG) \
 		$(HEROKU_ARGS)
 
+# Drops you in a shell, to experiment.
 cmd := bash --login
 shell: setup build
 	docker run --interactive --tty --rm --init \
